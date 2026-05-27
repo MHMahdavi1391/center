@@ -10,7 +10,8 @@
     // 👇 این لیست رو با اسم فایل‌هایی که توی ریشه ساختی به‌روز کن (بدون .html)
     const ROUTE_NAMES = [
         'me',             // ← فایل me.html
-        'shop'     // ← فایل avaye-shir.html
+        'shop',             // ← فایل me.html
+        'farava'     // ← فایل avaye-shir.html
              // ← فایل archive.html (اختیاری)
     ];
 
