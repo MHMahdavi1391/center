@@ -1,50 +1,67 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const linkListElement = document.getElementById('link-list');
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>در حال انتقال...</title>
+    <style>
+        body {
+            background: #0a0f1c;
+            color: #fff;
+            font-family: 'Inter', system-ui, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            direction: rtl;
+        }
+        .message {
+            text-align: center;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        <p>🚀 در حال انتقال به مقصد...</p>
+    </div>
 
-    async function loadLinks() {
-        try {
-            const response = await fetch('links.json');
-            
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            
-            const links = await response.json();
-            
-            if (!Array.isArray(links)) {
-                throw new Error('Data is not an array');
-            }
+    <script>
+        (async function () {
+            // 1. گرفتن عدد از آخر مسیر URL
+            const path = window.location.pathname.replace(/\/$/, '');
+            const segments = path.split('/').filter(Boolean);
+            const lastSegment = segments[segments.length - 1];
+            const index = parseInt(lastSegment, 10);
 
-            if (links.length === 0) {
-                linkListElement.innerHTML = '<li class="no-links">هیچ پروژه‌ای برای نمایش وجود ندارد.</li>';
+            // اگر عدد معتبری نبود، برو به صفحه اصلی هاب
+            if (isNaN(index) || index < 1) {
+                window.location.replace('/');
                 return;
             }
 
-            const linksHTML = links.map(link => {
-                if (!link.title || !link.url) {
-                    console.warn('Invalid link data:', link);
-                    return '';
+            // 2. خوندن فایل links.json
+            try {
+                const response = await fetch('/links.json');
+                if (!response.ok) throw new Error('فایل لینک‌ها پیدا نشد.');
+                const links = await response.json();
+
+                // 3. انتخاب لینک متناظر (index از ۱ شروع میشه، آرایه از ۰)
+                const targetUrl = links[index - 1];
+
+                if (targetUrl) {
+                    // انتقال مستقیم به لینک مورد نظر
+                    window.location.replace(targetUrl);
+                } else {
+                    // عدد خارج از محدوده بود → برگشت به هاب
+                    window.location.replace('/');
                 }
-                return `
-                    <li>
-                        <a href="${link.url}" target="_self" rel="noopener">
-                            ${link.title}
-                        </a>
-                    </li>
-                `;
-            }).join('');
-
-            linkListElement.innerHTML = linksHTML;
-
-        } catch (error) {
-            console.error('Error loading links:', error);
-            linkListElement.innerHTML = `
-                <li class="error-message">
-                    خطا در بارگذاری لینک‌ها. لطفاً دوباره تلاش کنید.
-                </li>
-            `;
-        }
-    }
-
-    loadLinks();
-});
+            } catch (error) {
+                console.error('خطا در بارگذاری links.json:', error);
+                window.location.replace('/');
+            }
+        })();
+    </script>
+</body>
+</html>
