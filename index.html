@@ -3,26 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="eckEmKRcxO2-v0_uGxKgiAfYmNxzAT6_36wGXXYYWFs" />
     <title>LTC HUB — هاب Lumen Technologies Co. (LTC)</title>
     <link rel="stylesheet" href="style.css">
-    <!-- فونت اینتر -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <main class="container">
         <header class="header">
-            <h1>LTC</h1>
-            <p class="subtitle">(Lumen Technologies Co.)</p>
-            <p class="intro">هاب انتخاب زیرمجموعه‌های شرکت ما</p>
+            <div class="logo-area">
+                <i class="fas fa-shield-haltered logo-icon"></i>
+                <h1>LTC<span class="dot">.</span>HUB</h1>
+            </div>
+            <p class="subtitle">Lumen Technologies Co.</p>
+            <p class="intro">هاب دسترسی به زیرمجموعه‌های شرکت</p>
         </header>
 
         <section class="links-section">
-            <ul id="link-list" class="link-list">
-                <!-- لینک‌ها با جاوااسکریپت پر می‌شوند -->
-            </ul>
+            <div id="link-list" class="link-grid">
+                <!-- کارت‌ها توسط جاوااسکریپت ساخته میشن -->
+            </div>
+            <!-- پیام برای وقتی که هیچ مسیریاب فعالی وجود نداشته باشه -->
+            <div id="empty-state" class="empty-state" style="display: none;">
+                <i class="fas fa-sitemap"></i>
+                <p>در حال حاضر مسیریاب فعالی وجود ندارد.</p>
+            </div>
         </section>
 
         <footer class="footer">
