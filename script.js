@@ -11,7 +11,8 @@
     const ROUTE_NAMES = [
         'me',             // ← فایل me.html
         'shop',             // ← فایل me.html
-        'farava'     // ← فایل avaye-shir.html
+        'farava',
+        'survey'// ← فایل avaye-shir.html
              // ← فایل archive.html (اختیاری)
     ];
 
