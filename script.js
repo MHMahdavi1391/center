@@ -1,5 +1,5 @@
 /**
- * LTC HUB — Dynamic Route Loader (Root Files)
+ * LTC HUB — Dynamic Route Loader
  */
 (function () {
     'use strict';
@@ -7,13 +7,12 @@
     const linkGrid = document.getElementById('link-list');
     const emptyState = document.getElementById('empty-state');
 
-    // 👇 این لیست رو با اسم فایل‌هایی که توی ریشه ساختی به‌روز کن (بدون .html)
+    // 👇 لیست فایل‌های داخل ریشه (بدون .html)
     const ROUTE_NAMES = [
-        'me',             // ← فایل me.html
-        'shop',             // ← فایل me.html
+        'me',
+        'shop',
         'farava',
-        'survey'// ← فایل avaye-shir.html
-             // ← فایل archive.html (اختیاری)
+        'survey'
     ];
 
     async function loadRoutes() {
@@ -44,7 +43,7 @@
                     icon: icon
                 });
             } catch (e) {
-                // فایل وجود ندارد یا خطا در پردازش، ادامه بده
+                // فایل وجود ندارد یا خطا در پردازش
             }
         }
 
