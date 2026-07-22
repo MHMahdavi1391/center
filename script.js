@@ -11,7 +11,7 @@
     const ROUTE_NAMES = [
         'me',
         'shop',
-        'farava',
+        'yelo',
         'survey'
     ];
 
