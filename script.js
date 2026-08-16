@@ -1,5 +1,5 @@
 /**
- * LTC HUB — Dynamic Route Loader
+ * LTC HUB — Dynamic Route Loader (Premium)
  */
 (function () {
     'use strict';
@@ -7,7 +7,7 @@
     const linkGrid = document.getElementById('link-list');
     const emptyState = document.getElementById('empty-state');
 
-    // 👇 لیست فایل‌های داخل ریشه (بدون .html)
+    // لیست فایل‌های داخل ریشه (بدون .html)
     const ROUTE_NAMES = [
         'me',
         'shop',
@@ -57,9 +57,14 @@
         linkGrid.style.display = 'flex';
         linkGrid.innerHTML = routes.map(route => `
             <a href="${route.url}" class="link-card" target="_blank" rel="noopener noreferrer">
-                <i class="${route.icon} card-icon"></i>
-                <span class="card-title">${route.name}</span>
-                ${route.description ? `<span class="card-desc">${route.description}</span>` : ''}
+                <div class="card-icon">
+                    <i class="${route.icon}"></i>
+                </div>
+                <div class="card-content">
+                    <span class="card-title">${route.name}</span>
+                    ${route.description ? `<span class="card-desc">${route.description}</span>` : ''}
+                </div>
+                <i class="fas fa-chevron-left card-arrow"></i>
             </a>
         `).join('');
     }
