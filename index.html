@@ -10,8 +10,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+      .lang-toggle {
+        position: fixed;
+        top: 16px;
+        left: 16px;
+        z-index: 100;
+        display: flex;
+        gap: 0;
+        border-radius: 999px;
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(20,24,32,0.75);
+        backdrop-filter: blur(12px);
+      }
+      .lang-toggle button {
+        border: none;
+        background: transparent;
+        color: rgba(255,255,255,0.55);
+        font-size: 0.75rem;
+        font-weight: 700;
+        padding: 8px 12px;
+        cursor: pointer;
+        font-family: inherit;
+        letter-spacing: 0.04em;
+      }
+      .lang-toggle button.active {
+        background: rgba(245,200,66,0.2);
+        color: #f5c842;
+      }
+      html[dir="ltr"] .lang-toggle { left: auto; right: 16px; }
+      html[dir="ltr"] body { direction: ltr; }
+      html[dir="ltr"] .card-arrow { transform: scaleX(-1); }
+    </style>
 </head>
 <body>
+    <div class="lang-toggle" id="langToggle">
+      <button type="button" data-lang="fa" class="active">FA</button>
+      <button type="button" data-lang="en">EN</button>
+    </div>
+
     <div class="bg-effects">
         <div class="glow glow-1"></div>
         <div class="glow glow-2"></div>
@@ -19,8 +57,6 @@
     </div>
 
     <main class="container">
-
-        <!-- HEADER -->
         <header class="header">
             <div class="brand">
                 <div class="brand-mark">
@@ -33,23 +69,19 @@
                     <p class="brand-sub">Lumen Technologies Co.</p>
                 </div>
             </div>
-            <p class="tagline">دسترسی یکپارچه به سرویس‌ها و زیرمجموعه‌های شرکت</p>
+            <p class="tagline" data-i18n="tagline">دسترسی یکپارچه به سرویس‌ها و زیرمجموعه‌های شرکت</p>
         </header>
 
-        <!-- LINKS -->
         <section class="links-section">
-            <div id="link-list" class="link-grid">
-                <!-- کارت‌ها توسط JS ساخته می‌شوند -->
-            </div>
+            <div id="link-list" class="link-grid"></div>
             <div id="empty-state" class="empty-state" style="display: none;">
                 <div class="empty-icon">
                     <i class="fas fa-sitemap"></i>
                 </div>
-                <p>در حال حاضر مسیریابی فعالی وجود ندارد.</p>
+                <p data-i18n="empty">در حال حاضر مسیریابی فعالی وجود ندارد.</p>
             </div>
         </section>
 
-        <!-- CONTACT -->
         <section class="contact-section">
             <div class="contact-card">
                 <div class="contact-left">
@@ -57,25 +89,23 @@
                         <i class="fas fa-headset"></i>
                     </div>
                     <div class="contact-meta">
-                        <span class="contact-label">ارتباط با مدیریت</span>
+                        <span class="contact-label" data-i18n="contact_label">ارتباط با مدیریت</span>
                         <span class="contact-number" dir="ltr">۰۹۳۶ ۲۳۳ ۵۲۶۶</span>
                     </div>
                 </div>
                 <a href="tel:09362335266" class="call-btn">
                     <i class="fas fa-phone"></i>
-                    <span>تماس</span>
+                    <span data-i18n="call">تماس</span>
                 </a>
             </div>
         </section>
 
-        <!-- FOOTER -->
         <footer class="footer">
             <p class="footer-copy">
                 &copy; ۲۰۲۶ <strong>Lumen Technologies Co.</strong>
             </p>
-            <p class="footer-credit">طراحی و توسعه با دقت</p>
+            <p class="footer-credit" data-i18n="footer_credit">طراحی و توسعه با دقت</p>
         </footer>
-
     </main>
 
     <script src="script.js"></script>
