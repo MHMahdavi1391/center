@@ -15,7 +15,8 @@
                 me: 'از سازنده شرکت بیشتر بدانید',
                 shop: 'فروشگاه خدمات دیجیتال',
                 yelo: 'YELO Music',
-                survey: 'نظرسنجی'
+                survey: 'نظرسنجی',
+                VR: 'فایل‌ها و خدمات VR'
             }
         },
         en: {
@@ -28,14 +29,15 @@
                 me: 'Learn more about the founder',
                 shop: 'Digital services shop',
                 yelo: 'YELO Music',
-                survey: 'Survey'
+                survey: 'Survey',
+                VR: 'VR files and services'
             }
         }
     };
 
     const linkGrid = document.getElementById('link-list');
     const emptyState = document.getElementById('empty-state');
-    const ROUTE_NAMES = ['me', 'shop', 'yelo', 'survey'];
+    const ROUTE_NAMES = ['me', 'shop', 'yelo', 'survey', 'VR'];
     let cachedRoutes = [];
     let lang = localStorage.getItem('ltc_lang') || 'fa';
 
