@@ -13,10 +13,10 @@
             footer_credit: 'طراحی و توسعه با دقت',
             routes: {
                 me: 'از سازنده شرکت بیشتر بدانید',
-                shop: 'فروشگاه خدمات دیجیتال',
+                shop: 'خدمات دیجیتال',
                 yelo: 'YELO Music',
                 survey: 'نظرسنجی',
-                VR: 'فایل‌ها و خدمات VR'
+                VR: 'کتابخانه لومن'
             }
         },
         en: {
@@ -27,10 +27,10 @@
             footer_credit: 'Designed and built with care',
             routes: {
                 me: 'Learn more about the founder',
-                shop: 'Digital services shop',
+                shop: 'Digital services',
                 yelo: 'YELO Music',
                 survey: 'Survey',
-                VR: 'VR files and services'
+                VR: 'Lumen Library'
             }
         }
     };
