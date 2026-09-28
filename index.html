@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="eckEmKRcxO2-v0_uGxKgiAfYmNxzAT6_36wGXXYYWFs" />
     <title>LTC HUB | Lumen Technologies Co.</title>
-    <meta name="description" content="هاب رسمی Lumen Technologies Co. دسترسی به فروشگاه، YELO، VR، صفحه سازنده و خدمات LTC.">
-    <meta name="keywords" content="LTC, Lumen Technologies, هاب LTC, YELO, VR, فروشگاه دیجیتال">
+    <meta name="description" content="هاب رسمی Lumen Technologies Co. معرفی شرکت LTC، محمد حسین مهدوی، YELO، VR و نظرسنجی.">
+    <meta name="keywords" content="LTC, Lumen Technologies, هاب LTC, YELO, VR, محمد حسین مهدوی">
     <meta name="author" content="Lumen Technologies Co.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://lt-c.iddns.ir/">
@@ -15,37 +15,47 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Lumen Technologies Co.">
     <meta property="og:title" content="LTC HUB | Lumen Technologies Co.">
-    <meta property="og:description" content="هاب رسمی خدمات و زیرمجموعه‌های Lumen Technologies Co.">
+    <meta property="og:description" content="هاب رسمی، معرفی شرکت LTC و سازنده.">
     <meta property="og:url" content="https://lt-c.iddns.ir/">
     <meta property="og:image" content="https://mhmahdavi1391.github.io/VR/logo.jpg">
     <meta property="og:locale" content="fa_IR">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="LTC HUB | Lumen Technologies Co.">
-    <meta name="twitter:description" content="هاب رسمی خدمات LTC">
+    <meta name="twitter:description" content="هاب رسمی خدمات LTC و معرفی شرکت">
     <meta name="twitter:image" content="https://mhmahdavi1391.github.io/VR/logo.jpg">
     <link rel="icon" href="https://mhmahdavi1391.github.io/VR/logo.jpg" />
     <link rel="apple-touch-icon" href="https://mhmahdavi1391.github.io/VR/logo.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800;900&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Lumen Technologies Co.","alternateName":"LTC","url":"https://lt-c.iddns.ir/","logo":"https://mhmahdavi1391.github.io/VR/logo.jpg","telephone":"+989362335266"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Lumen Technologies Co.","alternateName":"LTC","url":"https://lt-c.iddns.ir/","logo":"https://mhmahdavi1391.github.io/VR/logo.jpg","telephone":"+989362335266","founder":{"@type":"Person","name":"Mohammad Hosein Mahdavi"}}</script>
     <style>
-      .lang-toggle {
-        position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%); z-index: 100;
-        display: flex; border-radius: 999px; overflow: hidden;
-        border: 1px solid rgba(255,255,255,0.12); background: rgba(20,24,32,0.85); backdrop-filter: blur(12px);
-      }
-      .lang-toggle button {
-        border: none; background: transparent; color: rgba(255,255,255,0.55);
-        font-size: 0.75rem; font-weight: 700; padding: 8px 14px; cursor: pointer; font-family: inherit;
-      }
-      .lang-toggle button.active { background: rgba(245,200,66,0.2); color: #f5c842; }
-      html[dir="ltr"] body { direction: ltr; }
-      html[dir="ltr"] .card-arrow { transform: scaleX(-1); }
       .brand-icon { background: #10131c !important; padding: 4px; overflow: hidden; }
       .brand-logo { width: 100%; height: 100%; object-fit: contain; border-radius: 12px; display: block; }
+      .about-block { margin-top: 48px; padding-top: 8px; }
+      .about-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 28px; margin-top: 18px; }
+      .eyebrow { font-size: .75rem; letter-spacing: .12em; color: var(--accent); font-weight: 700; margin-bottom: 8px; text-transform: uppercase; }
+      .section-title { font-size: clamp(1.35rem, 3vw, 1.9rem); font-weight: 800; margin-bottom: 14px; }
+      .about-text p { color: var(--text-secondary); line-height: 2; text-align: justify; }
+      .about-text p + p { margin-top: 12px; }
+      .stat-list { border-top: 1px solid var(--border); }
+      .stat-row { display: flex; justify-content: space-between; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--border); }
+      .stat-row .k { font-size: .82rem; color: var(--text-muted); }
+      .stat-row .v { font-weight: 700; color: var(--accent); }
+      .venture-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 18px; }
+      .v-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; }
+      .v-icon { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); margin-bottom: 10px; }
+      .v-card h3 { font-size: 1.02rem; margin-bottom: 8px; }
+      .v-card p { font-size: .9rem; color: var(--text-secondary); line-height: 1.8; }
+      .v-tag { display: inline-block; margin-top: 10px; font-size: .72rem; color: var(--text-muted); border: 1px solid var(--border); border-radius: 999px; padding: 4px 10px; }
+      .quote-box { margin-top: 28px; text-align: center; background: #f8fbff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px 20px; }
+      .quote-box blockquote { font-size: clamp(1.05rem, 2.4vw, 1.35rem); font-weight: 700; line-height: 1.7; }
+      .quote-attr { margin-top: 10px; font-size: .8rem; color: var(--text-muted); }
+      @media (max-width: 860px) {
+        .about-grid, .venture-grid { grid-template-columns: 1fr; }
+      }
     </style>
 </head>
 <body>
@@ -63,7 +73,7 @@
             <div class="brand">
                 <div class="brand-mark">
                     <div class="brand-icon">
-                        <img class="brand-logo" src="logo.jpg" alt="Lumen Technologies Co." onerror="this.onerror=null;this.src='https://mhmahdavi1391.github.io/VR/logo.jpg'">
+                        <img class="brand-logo" src="https://mhmahdavi1391.github.io/VR/logo.jpg" alt="Lumen Technologies Co.">
                     </div>
                 </div>
                 <div class="brand-text">
@@ -71,7 +81,7 @@
                     <p class="brand-sub">Lumen Technologies Co.</p>
                 </div>
             </div>
-            <p class="tagline" data-i18n="tagline">دسترسی یکپارچه به سرویس‌ها و زیرمجموعه‌های شرکت</p>
+            <p class="tagline" data-i18n="tagline">دسترسی یکپارچه به سرویس‌ها و معرفی شرکت</p>
         </header>
         <section class="links-section">
             <div id="link-list" class="link-grid"></div>
@@ -80,6 +90,63 @@
                 <p data-i18n="empty">در حال حاضر مسیریابی فعالی وجود ندارد.</p>
             </div>
         </section>
+
+        <section class="about-block" id="company">
+            <p class="eyebrow" data-i18n="co_eyebrow">شرکت</p>
+            <h2 class="section-title" data-i18n="co_title">Lumen Technologies Co.</h2>
+            <div class="about-text">
+                <p data-i18n="co_p1">Lumen Technologies Co. (LTC) مجموعه‌ای فناورانه، امنیتی و رسانه‌ای است که خدمات دیجیتال، تولید محتوای حرفه‌ای و حمایت از هنرمندان مستقل را زیر یک سقف نگه می‌دارد.</p>
+                <p data-i18n="co_p2">اولویت مجموعه امنیت، شفافیت و اخلاق حرفه‌ای در فضای دیجیتال است. پورتال رسمی این مجموعه همین هاب است.</p>
+            </div>
+            <div class="venture-grid">
+                <div class="v-card">
+                    <div class="v-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Lumen Technologies Co.</h3>
+                    <p data-i18n="v1">هسته‌ی اصلی مجموعه؛ خدمات فناورانه و امنیتی با تمرکز بر اعتماد.</p>
+                    <span class="v-tag" data-i18n="v1t">فناوری · امنیت</span>
+                </div>
+                <div class="v-card">
+                    <div class="v-icon"><i class="fa-solid fa-music"></i></div>
+                    <h3>YELO</h3>
+                    <p data-i18n="v2">لیبل موسیقی مجموعه برای حمایت از هنرمندان مستقل و نشر آثار باکیفیت.</p>
+                    <span class="v-tag" data-i18n="v2t">نشر موسیقی</span>
+                </div>
+                <div class="v-card">
+                    <div class="v-icon"><i class="fa-solid fa-vr-cardboard"></i></div>
+                    <h3 data-i18n="v5h">کتابخانه لومن / VR</h3>
+                    <p data-i18n="v5">کتابخانه و ابزارهای واقعیت مجازی برای Quest و اندروید.</p>
+                    <span class="v-tag">VR</span>
+                </div>
+                <div class="v-card">
+                    <div class="v-icon"><i class="fa-solid fa-mosque"></i></div>
+                    <h3 data-i18n="v3h">مجمع فرهنگی‌آموزشی امام هادی (ع)</h3>
+                    <p data-i18n="v3">مدیریت تولید محتوا و رسانه، از تولید تا انتشار.</p>
+                    <span class="v-tag" data-i18n="v3t">رسانه · محتوا</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-block" id="about">
+            <p class="eyebrow" data-i18n="about_eyebrow">سازنده</p>
+            <h2 class="section-title" data-i18n="about_title">محمد حسین مهدوی</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p data-i18n="about_p1">محمد حسین مهدوی بنیان‌گذار و مدیرکل Lumen Technologies Co. است؛ مجموعه‌ای که فناوری، امنیت و رسانه را در یک روایت واحد جمع کرده است.</p>
+                    <p data-i18n="about_p2">او از نوجوانی با برنامه‌نویسی، امنیت سایبری و مدیریت پروژه‌های دیجیتال کار کرد و امروز چند حوزه را زیر یک سقف مدیریت می‌کند.</p>
+                </div>
+                <div class="stat-list">
+                    <div class="stat-row"><span class="k" data-i18n="stat_company">شرکت اصلی</span><span class="v">LTC</span></div>
+                    <div class="stat-row"><span class="k" data-i18n="stat_label">لیبل موسیقی</span><span class="v">YELO</span></div>
+                    <div class="stat-row"><span class="k" data-i18n="stat_portal">پورتال رسمی</span><span class="v">lt-c.iddns.ir</span></div>
+                    <div class="stat-row"><span class="k" data-i18n="stat_priority">اولویت مجموعه</span><span class="v" data-i18n="stat_priority_v">امنیت و شفافیت</span></div>
+                </div>
+            </div>
+            <div class="quote-box">
+                <blockquote data-i18n="quote">شفافیت، امنیت و اخلاق حرفه‌ای در فضای دیجیتال، پایه‌های اعتماد و پیشرفت هستند.</blockquote>
+                <div class="quote-attr">— Mohammad Hosein Mahdavi</div>
+            </div>
+        </section>
+
         <section class="contact-section">
             <div class="contact-card">
                 <div class="contact-left">
