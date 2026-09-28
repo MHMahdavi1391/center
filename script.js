@@ -11,6 +11,9 @@
             contact_label: 'ارتباط با مدیریت',
             call: 'تماس',
             footer_credit: 'طراحی و توسعه با دقت',
+            s_msg: 'پیام به شرکت',
+            s_3d: 'محصولات پرینت سه‌بعدی',
+            s_ig: 'اینستاگرام',
             co_eyebrow: 'شرکت',
             co_title: 'Lumen Technologies Co.',
             co_p1: 'Lumen Technologies Co. (LTC) مجموعه‌ای فناورانه، امنیتی و رسانه‌ای است که خدمات دیجیتال، تولید محتوای حرفه‌ای و حمایت از هنرمندان مستقل را زیر یک سقف نگه می‌دارد.',
@@ -33,12 +36,15 @@
             v3h: 'مجمع فرهنگی‌آموزشی امام هادی (ع)',
             v3: 'مدیریت تولید محتوا و رسانه، از تولید تا انتشار.',
             v3t: 'رسانه · محتوا',
+            v6h: 'پرینت سه‌بعدی',
+            v6: 'مشاهده و سفارش محصولات پرینت سه‌بعدی از کانال تلگرام.',
             quote: 'شفافیت، امنیت و اخلاق حرفه‌ای در فضای دیجیتال، پایه‌های اعتماد و پیشرفت هستند.',
             routes: {
                 me: 'معرفی سازنده و شرکت',
                 yelo: 'YELO Music',
                 survey: 'نظرسنجی',
-                VR: 'کتابخانه لومن'
+                VR: 'کتابخانه لومن',
+                print3d: 'محصولات پرینت سه‌بعدی'
             }
         },
         en: {
@@ -47,6 +53,9 @@
             contact_label: 'Contact management',
             call: 'Call',
             footer_credit: 'Designed and built with care',
+            s_msg: 'Message the company',
+            s_3d: '3D print products',
+            s_ig: 'Instagram',
             co_eyebrow: 'Company',
             co_title: 'Lumen Technologies Co.',
             co_p1: 'Lumen Technologies Co. (LTC) is a technology, security, and media group that brings digital services, professional content, and support for independent artists under one roof.',
@@ -69,19 +78,22 @@
             v3h: 'Imam Hadi Cultural and Educational Assembly',
             v3: 'Content and media management, from production to publication.',
             v3t: 'Media · Content',
+            v6h: '3D printing',
+            v6: 'Browse and order 3D printed products from the Telegram channel.',
             quote: 'Transparency, security, and professional ethics in digital spaces are the foundations of trust and progress.',
             routes: {
                 me: 'Founder and company',
                 yelo: 'YELO Music',
                 survey: 'Survey',
-                VR: 'Lumen Library'
+                VR: 'Lumen Library',
+                print3d: '3D print products'
             }
         }
     };
 
     const linkGrid = document.getElementById('link-list');
     const emptyState = document.getElementById('empty-state');
-    const ROUTE_NAMES = ['me', 'yelo', 'survey', 'VR'];
+    const ROUTE_NAMES = ['me', 'yelo', 'print3d', 'survey', 'VR'];
     let cachedRoutes = [];
     let lang = localStorage.getItem('ltc_lang') || 'fa';
 
