@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#16345c">
   <title>نظرسنجی | LTC HUB</title>
   <meta name="description" content="نظرسنجی Lumen Technologies Co.">
   <meta name="robots" content="index, follow">
@@ -10,52 +11,74 @@
   <link rel="icon" href="https://mhmahdavi1391.github.io/VR/logo.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
   <style>
-    .topnav { position: sticky; top: 0; z-index: 50; padding: 14px 0; margin-bottom: 8px; background: rgba(255,255,255,.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-    .topnav-inner { width: min(640px, calc(100% - 32px)); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
-    .hub-link { display: inline-flex; align-items: center; gap: 8px; font-size: .86rem; font-weight: 600; color: var(--text-secondary); padding: 8px 14px; border-radius: 999px; border: 1px solid var(--border); background: #fff; }
-    .hub-link img { width: 22px; height: 22px; object-fit: contain; border-radius: 8px; }
-    .survey-wrap { width: min(640px, calc(100% - 32px)); margin: 0 auto; padding: 28px 0 88px; }
-    .survey-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px 24px; }
-    .survey-kicker { font-size: .75rem; letter-spacing: .12em; color: var(--accent); font-weight: 700; text-transform: uppercase; margin-bottom: 8px; }
-    .survey-card h1 { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 800; margin-bottom: 8px; }
-    .survey-lead { color: var(--text-secondary); margin-bottom: 26px; }
-    .field { margin-bottom: 18px; }
-    .field label { display: block; font-weight: 700; font-size: .92rem; margin-bottom: 8px; }
-    .field .hint { display: block; color: var(--text-muted); font-size: .78rem; font-weight: 500; margin-top: 4px; }
-    .field input, .field textarea { width: 100%; font-family: inherit; font-size: 1rem; color: var(--text); padding: 14px 16px; border: 1px solid var(--border); border-radius: var(--radius-md); background: #fff; outline: none; }
-    .field textarea { min-height: 140px; resize: vertical; line-height: 1.7; }
-    .field input:focus, .field textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
-    .field.error input, .field.error textarea { border-color: #c42b1c; }
-    .field .err { display: none; color: #c42b1c; font-size: .8rem; margin-top: 6px; }
+    :root { --ink:#102033; --muted:#3e5168; --line:rgba(16,32,51,.14); --card:rgba(255,255,255,.72); }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100dvh; color: var(--ink);
+      font-family: Vazirmatn, sans-serif; line-height: 1.7;
+      background: #16345c;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0; z-index: -1;
+      background:
+        radial-gradient(90% 55% at 50% 108%, rgba(255,214,176,.95), transparent 46%),
+        radial-gradient(60% 42% at 86% 16%, rgba(126,182,255,.55), transparent 52%),
+        radial-gradient(50% 40% at 8% 22%, rgba(22,58,110,.55), transparent 60%),
+        linear-gradient(180deg, #1b3f73 0%, #4d86c5 46%, #e7b08a 100%);
+      animation: sky 22s ease-in-out infinite alternate;
+    }
+    .topnav { position: sticky; top: 0; z-index: 5; padding: 16px 0; }
+    .topnav-inner, .survey-wrap { width: min(680px, calc(100% - 32px)); margin: 0 auto; }
+    .hub-link, .survey-card, .field input, .field textarea, .star-btn, .btn-ghost {
+      background: var(--card); color: var(--ink);
+      border: 1px solid rgba(255,255,255,.55);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 18px 40px rgba(16,32,51,.16);
+      backdrop-filter: blur(28px) saturate(1.4);
+    }
+    .hub-link { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; text-decoration: none; font-weight: 700; }
+    .hub-link img { width: 22px; height: 22px; border-radius: 7px; object-fit: contain; }
+    .survey-wrap { padding: 18px 0 72px; }
+    .survey-card { border-radius: 28px; padding: 28px 24px; }
+    .survey-kicker { margin: 0 0 8px; color: #1d4e89; font-size: .75rem; font-weight: 800; letter-spacing: .12em; }
+    h1 { margin: 0 0 8px; font-size: clamp(1.7rem, 4vw, 2.2rem); letter-spacing: -.03em; }
+    .survey-lead, .hint, .rating-caption, .phone-row, .footer { color: var(--muted); }
+    .survey-lead { margin: 0 0 22px; }
+    .field { margin-bottom: 16px; }
+    .field label, .rating-box p { display: block; font-weight: 800; margin-bottom: 8px; }
+    .field input, .field textarea { width: 100%; padding: 14px 16px; border-radius: 16px; font: inherit; outline: none; }
+    .field textarea { min-height: 140px; resize: vertical; }
+    .field input:focus, .field textarea:focus { border-color: #1d4e89; box-shadow: 0 0 0 4px rgba(29,78,137,.15); }
+    .field.error input, .field.error textarea { border-color: #a4262c; }
+    .err { display: none; color: #a4262c; font-size: .8rem; margin-top: 6px; }
     .field.error .err { display: block; }
-    .rating-box { border: 1px solid var(--border); border-radius: var(--radius-md); padding: 18px 16px; text-align: center; margin: 8px 0 22px; background: #f8fbff; }
-    .rating-box p { font-weight: 700; margin-bottom: 12px; }
-    .stars { display: flex; justify-content: center; gap: 6px; direction: ltr; }
-    .star-btn { width: 48px; height: 48px; border: 1px solid var(--border); border-radius: 12px; background: #fff; color: #c8c6c4; font-size: 22px; cursor: pointer; }
-    .star-btn.on { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
-    .star-btn:hover { border-color: var(--accent); }
-    .rating-caption { margin-top: 10px; color: var(--text-muted); font-size: .86rem; min-height: 1.2em; }
+    .rating-box { margin: 8px 0 20px; padding: 16px; text-align: center; border-radius: 20px; background: rgba(255,255,255,.38); }
+    .stars { display: flex; justify-content: center; gap: 8px; direction: ltr; }
+    .star-btn { width: 48px; height: 48px; border-radius: 14px; font-size: 22px; color: #8aa0b8; cursor: pointer; }
+    .star-btn.on { color: #c9842a; background: rgba(255,255,255,.9); border-color: rgba(201,132,42,.35); }
     .actions { display: flex; gap: 10px; flex-wrap: wrap; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: inherit; font-weight: 700; font-size: .95rem; padding: 12px 18px; border-radius: 999px; cursor: pointer; border: 1px solid transparent; }
-    .btn-primary { flex: 1; min-width: 180px; background: var(--accent); color: #fff; }
-    .btn-primary:hover { background: #106ebe; }
-    .btn-primary:disabled { opacity: .65; cursor: wait; }
-    .btn-ghost { flex: 1; min-width: 140px; background: #fff; color: var(--text); border-color: var(--border); text-decoration: none; }
-    .status { display: none; margin-top: 14px; padding: 12px 14px; border-radius: 12px; font-size: .9rem; }
+    .btn { flex: 1; min-width: 140px; display: inline-flex; justify-content: center; align-items: center; min-height: 46px; border-radius: 999px; border: 0; font: inherit; font-weight: 800; text-decoration: none; cursor: pointer; }
+    .btn-primary { background: #102033; color: #fff; }
+    .btn-primary:disabled { opacity: .6; }
+    .status { display: none; margin-top: 14px; padding: 12px 14px; border-radius: 14px; }
     .status.show { display: block; }
-    .status.ok { background: #dff6dd; color: #0e700e; }
-    .status.bad { background: #fde7e9; color: #a4262c; }
-    .success-card { display: none; text-align: center; padding: 36px 20px; }
+    .status.ok { background: rgba(223,246,221,.9); color: #0e700e; }
+    .status.bad { background: rgba(253,231,233,.92); color: #a4262c; }
+    .success-card { display: none; text-align: center; }
     .success-card.show { display: block; }
-    .success-icon { width: 64px; height: 64px; margin: 0 auto 16px; border-radius: 16px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); font-size: 28px; }
     .form-card.hide { display: none; }
-    .phone-row { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 18px; color: var(--text-secondary); }
-    .phone-row a { color: var(--accent); font-weight: 700; }
-    @media (max-width: 640px) { .survey-card { padding: 22px 16px; } .star-btn { width: 42px; height: 42px; font-size: 18px; } }
+    .success-icon { width: 64px; height: 64px; margin: 0 auto 14px; border-radius: 18px; display: grid; place-items: center; background: rgba(255,255,255,.7); color: #1d4e89; font-size: 26px; }
+    .phone-row { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
+    .phone-row a { color: #102033; font-weight: 800; }
+    .footer { text-align: center; margin-top: 22px; font-size: 13px; }
+    .lang-toggle { position: fixed; bottom: 14px; left: 50%; transform: translateX(-50%); display: flex; overflow: hidden; border-radius: 999px; background: rgba(255,255,255,.7); backdrop-filter: blur(16px); }
+    .lang-toggle button { border: 0; background: transparent; color: #3e5168; font-weight: 800; padding: 10px 16px; cursor: pointer; }
+    .lang-toggle button.active { background: #102033; color: #fff; }
+    @keyframes sky { from { transform: scale(1); } to { transform: scale(1.04); } }
+    @media (max-width: 640px) { .survey-card { padding: 22px 16px; } .star-btn { width: 42px; height: 42px; } }
+    @media (prefers-reduced-motion: reduce) { body::before { animation: none; } }
   </style>
 </head>
 <body>
@@ -65,10 +88,7 @@
   </div>
   <nav class="topnav">
     <div class="topnav-inner">
-      <a class="hub-link" href="./">
-        <img src="https://mhmahdavi1391.github.io/VR/logo.jpg" alt="LTC">
-        <span data-i18n="back">بازگشت به هاب LTC</span>
-      </a>
+      <a class="hub-link" href="./"><img src="https://mhmahdavi1391.github.io/VR/logo.jpg" alt="LTC"><span data-i18n="back">بازگشت به هاب LTC</span></a>
     </div>
   </nav>
   <main class="survey-wrap">
@@ -77,38 +97,11 @@
       <h1 data-i18n="title">نظرسنجی</h1>
       <p class="survey-lead" data-i18n="lead">نظر شما به بهبود خدمات Lumen Technologies Co. کمک می‌کند.</p>
       <form id="survey-form" novalidate>
-        <div class="field" id="nameField">
-          <label for="name" data-i18n="name">نام و نام خانوادگی</label>
-          <input id="name" name="name" type="text" autocomplete="name" maxlength="80" required>
-          <span class="err" data-i18n="name_err">لطفاً نام را وارد کنید.</span>
-        </div>
-        <div class="field" id="phoneField">
-          <label for="phone" data-i18n="phone">شماره تماس (اختیاری)</label>
-          <input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="09362335266" maxlength="15" dir="ltr">
-          <span class="hint" data-i18n="phone_hint">با رقم انگلیسی، مثل 09362335266</span>
-          <span class="err" data-i18n="phone_err">شماره معتبر نیست.</span>
-        </div>
-        <div class="field" id="feedbackField">
-          <label for="feedback" data-i18n="feedback">نظر و پیشنهاد</label>
-          <textarea id="feedback" name="feedback" maxlength="1200" required></textarea>
-          <span class="err" data-i18n="feedback_err">حداقل ۱۰ حرف بنویسید.</span>
-        </div>
-        <div class="rating-box" id="ratingBox">
-          <p data-i18n="rating">از خدمات چقدر راضی بودید؟</p>
-          <div class="stars" id="stars" role="radiogroup" aria-label="rating">
-            <button type="button" class="star-btn" data-value="1" aria-label="1">★</button>
-            <button type="button" class="star-btn" data-value="2" aria-label="2">★</button>
-            <button type="button" class="star-btn" data-value="3" aria-label="3">★</button>
-            <button type="button" class="star-btn" data-value="4" aria-label="4">★</button>
-            <button type="button" class="star-btn" data-value="5" aria-label="5">★</button>
-          </div>
-          <div class="rating-caption" id="ratingText"></div>
-          <input type="hidden" name="rate" id="rate" value="">
-        </div>
-        <div class="actions">
-          <button type="submit" class="btn btn-primary" id="submitBtn" data-i18n="submit">ارسال نظرسنجی</button>
-          <a href="./" class="btn btn-ghost" data-i18n="cancel">انصراف</a>
-        </div>
+        <div class="field" id="nameField"><label for="name" data-i18n="name">نام و نام خانوادگی</label><input id="name" name="name" type="text" autocomplete="name" maxlength="80" required><span class="err" data-i18n="name_err">لطفاً نام را وارد کنید.</span></div>
+        <div class="field" id="phoneField"><label for="phone" data-i18n="phone">شماره تماس (اختیاری)</label><input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="09362335266" maxlength="15" dir="ltr"><span class="hint" data-i18n="phone_hint">با رقم انگلیسی، مثل 09362335266</span><span class="err" data-i18n="phone_err">شماره معتبر نیست.</span></div>
+        <div class="field" id="feedbackField"><label for="feedback" data-i18n="feedback">نظر و پیشنهاد</label><textarea id="feedback" name="feedback" maxlength="1200" required></textarea><span class="err" data-i18n="feedback_err">حداقل ۱۰ حرف بنویسید.</span></div>
+        <div class="rating-box" id="ratingBox"><p data-i18n="rating">از خدمات چقدر راضی بودید؟</p><div class="stars" id="stars" role="radiogroup" aria-label="rating"><button type="button" class="star-btn" data-value="1" aria-label="1">★</button><button type="button" class="star-btn" data-value="2" aria-label="2">★</button><button type="button" class="star-btn" data-value="3" aria-label="3">★</button><button type="button" class="star-btn" data-value="4" aria-label="4">★</button><button type="button" class="star-btn" data-value="5" aria-label="5">★</button></div><div class="rating-caption" id="ratingText"></div><input type="hidden" name="rate" id="rate" value=""></div>
+        <div class="actions"><button type="submit" class="btn btn-primary" id="submitBtn" data-i18n="submit">ارسال نظرسنجی</button><a href="./" class="btn btn-ghost" data-i18n="cancel">انصراف</a></div>
         <div class="status" id="status"></div>
       </form>
     </section>
@@ -116,48 +109,16 @@
       <div class="success-icon"><i class="fa-solid fa-check"></i></div>
       <h1 data-i18n="thanks">ثبت شد</h1>
       <p class="survey-lead" data-i18n="thanks_text">از وقتی که گذاشتید سپاسگزاریم. نظر شما دریافت شد.</p>
-      <div class="actions" style="justify-content:center">
-        <a href="./" class="btn btn-primary" data-i18n="home">بازگشت به هاب</a>
-        <button type="button" class="btn btn-ghost" id="againBtn" data-i18n="again">ارسال نظر دیگر</button>
-      </div>
+      <div class="actions" style="justify-content:center"><a href="./" class="btn btn-primary" data-i18n="home">بازگشت به هاب</a><button type="button" class="btn btn-ghost" id="againBtn" data-i18n="again">ارسال نظر دیگر</button></div>
     </section>
-    <div class="phone-row">
-      <i class="fa-solid fa-phone"></i>
-      <a href="tel:09362335266" dir="ltr">0936 233 5266</a>
-    </div>
-    <footer class="footer">
-      <p>&copy; 2026 <strong>Lumen Technologies Co.</strong></p>
-    </footer>
+    <div class="phone-row"><i class="fa-solid fa-phone"></i><a href="tel:09362335266" dir="ltr">0936 233 5266</a></div>
+    <footer class="footer"><p>&copy; 2026 <strong>Lumen Technologies Co.</strong></p></footer>
   </main>
 <script>
 (function () {
   var I18N = {
-    fa: {
-      back: 'بازگشت به هاب LTC', kicker: 'نظرسنجی LTC', title: 'نظرسنجی',
-      lead: 'نظر شما به بهبود خدمات Lumen Technologies Co. کمک می‌کند.',
-      name: 'نام و نام خانوادگی', name_err: 'لطفاً نام را وارد کنید.',
-      phone: 'شماره تماس (اختیاری)', phone_hint: 'با رقم انگلیسی، مثل 09362335266',
-      phone_err: 'شماره معتبر نیست.', feedback: 'نظر و پیشنهاد',
-      feedback_err: 'حداقل ۱۰ حرف بنویسید.', rating: 'از خدمات چقدر راضی بودید؟',
-      rate_err: 'لطفاً امتیاز بدهید.', submit: 'ارسال نظرسنجی', sending: 'در حال ارسال...',
-      cancel: 'انصراف', thanks: 'ثبت شد', thanks_text: 'از وقتی که گذاشتید سپاسگزاریم. نظر شما دریافت شد.',
-      home: 'بازگشت به هاب', again: 'ارسال نظر دیگر',
-      rates: { 1: 'ضعیف', 2: 'کمتر از انتظار', 3: 'متوسط', 4: 'خوب', 5: 'عالی' },
-      pick: 'یک تا پنج ستاره انتخاب کنید.'
-    },
-    en: {
-      back: 'Back to LTC Hub', kicker: 'LTC SURVEY', title: 'Survey',
-      lead: 'Your feedback helps Lumen Technologies Co. improve its services.',
-      name: 'Full name', name_err: 'Please enter your name.',
-      phone: 'Phone (optional)', phone_hint: 'English digits, e.g. 09362335266',
-      phone_err: 'That number does not look valid.', feedback: 'Feedback',
-      feedback_err: 'Please write at least 10 characters.', rating: 'How satisfied were you?',
-      rate_err: 'Please choose a rating.', submit: 'Send survey', sending: 'Sending...',
-      cancel: 'Cancel', thanks: 'Received', thanks_text: 'Thank you. Your survey was submitted.',
-      home: 'Back to hub', again: 'Send another',
-      rates: { 1: 'Poor', 2: 'Fair', 3: 'Okay', 4: 'Good', 5: 'Excellent' },
-      pick: 'Choose one to five stars.'
-    }
+    fa: { back: 'بازگشت به هاب LTC', kicker: 'نظرسنجی LTC', title: 'نظرسنجی', lead: 'نظر شما به بهبود خدمات Lumen Technologies Co. کمک می‌کند.', name: 'نام و نام خانوادگی', name_err: 'لطفاً نام را وارد کنید.', phone: 'شماره تماس (اختیاری)', phone_hint: 'با رقم انگلیسی، مثل 09362335266', phone_err: 'شماره معتبر نیست.', feedback: 'نظر و پیشنهاد', feedback_err: 'حداقل ۱۰ حرف بنویسید.', rating: 'از خدمات چقدر راضی بودید؟', rate_err: 'لطفاً امتیاز بدهید.', submit: 'ارسال نظرسنجی', sending: 'در حال ارسال...', cancel: 'انصراف', thanks: 'ثبت شد', thanks_text: 'از وقتی که گذاشتید سپاسگزاریم. نظر شما دریافت شد.', home: 'بازگشت به هاب', again: 'ارسال نظر دیگر', rates: { 1: 'ضعیف', 2: 'کمتر از انتظار', 3: 'متوسط', 4: 'خوب', 5: 'عالی' }, pick: 'یک تا پنج ستاره انتخاب کنید.' },
+    en: { back: 'Back to LTC Hub', kicker: 'LTC SURVEY', title: 'Survey', lead: 'Your feedback helps Lumen Technologies Co. improve its services.', name: 'Full name', name_err: 'Please enter your name.', phone: 'Phone (optional)', phone_hint: 'English digits, e.g. 09362335266', phone_err: 'That number does not look valid.', feedback: 'Feedback', feedback_err: 'Please write at least 10 characters.', rating: 'How satisfied were you?', rate_err: 'Please choose a rating.', submit: 'Send survey', sending: 'Sending...', cancel: 'Cancel', thanks: 'Received', thanks_text: 'Thank you. Your survey was submitted.', home: 'Back to hub', again: 'Send another', rates: { 1: 'Poor', 2: 'Fair', 3: 'Okay', 4: 'Good', 5: 'Excellent' }, pick: 'Choose one to five stars.' }
   };
   var lang = localStorage.getItem('ltc_lang') || 'fa';
   var rate = 0;
@@ -166,96 +127,45 @@
     var d = dict();
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === 'fa' ? 'rtl' : 'ltr';
-    document.querySelectorAll('[data-i18n]').forEach(function (el) {
-      var key = el.getAttribute('data-i18n');
-      if (d[key]) el.textContent = d[key];
-    });
-    document.querySelectorAll('#langToggle button').forEach(function (btn) {
-      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-    });
+    document.querySelectorAll('[data-i18n]').forEach(function (el) { var key = el.getAttribute('data-i18n'); if (d[key]) el.textContent = d[key]; });
+    document.querySelectorAll('#langToggle button').forEach(function (btn) { btn.classList.toggle('active', btn.getAttribute('data-lang') === lang); });
     paintStars();
   }
   function toEnDigits(s) {
-    var fa = '۰۱۲۳۴۵۶۷۸۹';
-    var ar = '٠١٢٣٤٥٦٧٨٩';
-    return String(s || '').replace(/[۰-۹٠-٩]/g, function (ch) {
-      var i = fa.indexOf(ch); if (i >= 0) return String(i);
-      i = ar.indexOf(ch); return i >= 0 ? String(i) : ch;
-    });
+    var fa = '۰۱۲۳۴۵۶۷۸۹'; var ar = '٠١٢٣٤٥٦٧٨٩';
+    return String(s || '').replace(/[۰-۹٠-٩]/g, function (ch) { var i = fa.indexOf(ch); if (i >= 0) return String(i); i = ar.indexOf(ch); return i >= 0 ? String(i) : ch; });
   }
   function paintStars() {
     var d = dict();
-    document.querySelectorAll('.star-btn').forEach(function (btn) {
-      var v = Number(btn.getAttribute('data-value'));
-      btn.classList.toggle('on', v <= rate);
-    });
+    document.querySelectorAll('.star-btn').forEach(function (btn) { btn.classList.toggle('on', Number(btn.getAttribute('data-value')) <= rate); });
     document.getElementById('ratingText').textContent = rate ? d.rates[rate] : d.pick;
     document.getElementById('rate').value = rate || '';
   }
   function setError(id, on) { document.getElementById(id).classList.toggle('error', !!on); }
-  function validPhone(raw) {
-    var p = toEnDigits(raw).replace(/[^\d]/g, '');
-    if (!p) return true;
-    return /^0?9\d{9}$/.test(p) || /^98\d{10}$/.test(p);
-  }
-  document.querySelectorAll('#langToggle button').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      lang = btn.getAttribute('data-lang');
-      localStorage.setItem('ltc_lang', lang);
-      applyI18n();
-    });
-  });
-  document.querySelectorAll('.star-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      rate = Number(btn.getAttribute('data-value'));
-      paintStars();
-    });
-  });
-  document.getElementById('phone').addEventListener('blur', function () {
-    this.value = toEnDigits(this.value).replace(/[^\d]/g, '');
-  });
+  function validPhone(raw) { var p = toEnDigits(raw).replace(/[^\d]/g, ''); if (!p) return true; return /^0?9\d{9}$/.test(p) || /^98\d{10}$/.test(p); }
+  document.querySelectorAll('#langToggle button').forEach(function (btn) { btn.addEventListener('click', function () { lang = btn.getAttribute('data-lang'); localStorage.setItem('ltc_lang', lang); applyI18n(); }); });
+  document.querySelectorAll('.star-btn').forEach(function (btn) { btn.addEventListener('click', function () { rate = Number(btn.getAttribute('data-value')); paintStars(); }); });
+  document.getElementById('phone').addEventListener('blur', function () { this.value = toEnDigits(this.value).replace(/[^\d]/g, ''); });
   document.getElementById('againBtn').addEventListener('click', function () {
-    document.getElementById('survey-form').reset();
-    rate = 0;
-    paintStars();
+    document.getElementById('survey-form').reset(); rate = 0; paintStars();
     ['nameField', 'phoneField', 'feedbackField'].forEach(function (id) { setError(id, false); });
-    document.getElementById('formCard').classList.remove('hide');
-    document.getElementById('successCard').classList.remove('show');
+    document.getElementById('formCard').classList.remove('hide'); document.getElementById('successCard').classList.remove('show');
   });
   document.getElementById('survey-form').addEventListener('submit', function (e) {
     e.preventDefault();
-    var d = dict();
-    var name = document.getElementById('name').value.trim();
-    var phoneRaw = document.getElementById('phone').value.trim();
-    var phone = toEnDigits(phoneRaw).replace(/[^\d]/g, '');
-    var feedback = document.getElementById('feedback').value.trim();
-    var status = document.getElementById('status');
-    var submitBtn = document.getElementById('submitBtn');
-    var ok = true;
+    var d = dict(); var name = document.getElementById('name').value.trim(); var phoneRaw = document.getElementById('phone').value.trim(); var phone = toEnDigits(phoneRaw).replace(/[^\d]/g, ''); var feedback = document.getElementById('feedback').value.trim(); var status = document.getElementById('status'); var submitBtn = document.getElementById('submitBtn'); var ok = true;
     setError('nameField', name.length < 2); if (name.length < 2) ok = false;
     setError('phoneField', !validPhone(phoneRaw)); if (!validPhone(phoneRaw)) ok = false;
     setError('feedbackField', feedback.length < 10); if (feedback.length < 10) ok = false;
     if (!rate) { status.className = 'status show bad'; status.textContent = d.rate_err; ok = false; }
     if (!ok) return;
-    status.className = 'status';
-    submitBtn.disabled = true;
-    submitBtn.textContent = d.sending;
-    var message = 'LTC Survey\n\n' + 'Name: ' + name + '\n' + 'Phone: ' + (phone || '-') + '\n' + 'Rate: ' + rate + '/5\n' + 'Feedback: ' + feedback + '\n' + 'Time: ' + new Date().toISOString();
+    status.className = 'status'; submitBtn.disabled = true; submitBtn.textContent = d.sending;
+    var message = 'LTC Survey\n\nName: ' + name + '\nPhone: ' + (phone || '-') + '\nRate: ' + rate + '/5\nFeedback: ' + feedback + '\nTime: ' + new Date().toISOString();
     var token = 'bot425913:7d5eec5b-c6c8-4bd9-9500-95e1d5a3bde4';
     var chat_id = 10977332;
     var url = 'https://eitaayar.ir/api/' + token + '/sendMessage?chat_id=' + chat_id + '&text=' + encodeURIComponent(message);
-    var iframe = document.createElement('iframe');
-    iframe.style.display = 'none';
-    iframe.src = url;
-    document.body.appendChild(iframe);
-    setTimeout(function () {
-      if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
-      submitBtn.disabled = false;
-      submitBtn.textContent = d.submit;
-      document.getElementById('formCard').classList.add('hide');
-      document.getElementById('successCard').classList.add('show');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 1400);
+    var iframe = document.createElement('iframe'); iframe.style.display = 'none'; iframe.src = url; document.body.appendChild(iframe);
+    setTimeout(function () { if (iframe.parentNode) iframe.parentNode.removeChild(iframe); submitBtn.disabled = false; submitBtn.textContent = d.submit; document.getElementById('formCard').classList.add('hide'); document.getElementById('successCard').classList.add('show'); window.scrollTo({ top: 0, behavior: 'smooth' }); }, 1400);
   });
   applyI18n();
 })();
