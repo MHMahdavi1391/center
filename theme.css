@@ -1,7 +1,9 @@
-.brand-icon,.v-card,.quote-box,.survey-card,.contact-card,.link-card{
-  background:rgba(14,24,36,.72) !important;
-  border-color:rgba(255,255,255,.16) !important;
-  backdrop-filter:blur(28px) saturate(1.15);
+.brand-icon,.v-card,.quote-box,.survey-card,.contact-card,.link-card,.hub-link,.field input,.field textarea,.star-btn,.btn-ghost{
+  background:rgba(10,18,30,.4) !important;
+  border-color:rgba(255,255,255,.28) !important;
+  color:#f7fbff !important;
+  backdrop-filter:blur(18px) saturate(1.45);
 }
-.quote-box blockquote,.v-card h3,.survey-card h1{color:#f6f8fb}
-.btn-primary,.call-btn{background:linear-gradient(180deg,#eef8ff,#b7e4ff) !important;color:#082033 !important}
+.topnav{background:rgba(8,16,28,.35) !important;backdrop-filter:blur(16px)}
+.quote-box blockquote,.v-card h3,.survey-card h1,.field label{color:#f7fbff !important}
+.btn-primary,.call-btn{background:linear-gradient(180deg,#f4fbff,#b7e4ff) !important;color:#082033 !important}
