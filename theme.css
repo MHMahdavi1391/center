@@ -1,5 +1,6 @@
-body{color:#f7f9fc !important;background:#081018 !important}
-h1,h2,h3,.card-title,.section-title,.contact-number,.stat-row .v,.quote-box blockquote{color:#f7f9fc !important}
-.card-desc,.tagline,.brand-sub,.about-text p,.v-card p,.quote-attr,.footer,.contact-label{color:#c9d3e0 !important}
-.link-card,.v-card,.quote-box,.contact-card{background:rgba(12,20,32,.7) !important;border-color:rgba(255,255,255,.18) !important;backdrop-filter:blur(26px) saturate(1.25)}
-.call-btn{background:#f7f9fc !important;color:#101820 !important}
+body,h1,h2,h3,p,a,span,li{color:#241433}
+.card-desc,.tagline,.brand-sub,.about-text p,.v-card p,.quote-attr,.footer,.contact-label{color:#5c4d6e !important}
+.card-title,.section-title,.v-card h3,.quote-box blockquote,.contact-number,.stat-row .v,.brand-text h1{color:#241433 !important}
+.link-card,.v-card,.quote-box,.contact-card{background:rgba(255,255,255,.74) !important;border-color:rgba(92,48,140,.16) !important;color:#241433 !important}
+.call-btn{background:linear-gradient(135deg,#ffc24a,#ff7a3c) !important;color:#2a1738 !important}
+.eyebrow{color:#6d4bd6 !important}
