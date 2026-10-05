@@ -1,15 +1,6 @@
-body::before{
-  background:
-    radial-gradient(90% 55% at 50% 112%, rgba(255,214,176,.85), transparent 48%),
-    radial-gradient(55% 40% at 84% 12%, rgba(126,182,255,.45), transparent 54%),
-    linear-gradient(180deg, #1b3f73 0%, #4d86c5 48%, #e7b08a 100%) !important;
-  filter:none !important;
-  animation:drift 24s ease-in-out infinite alternate !important;
-}
-.link-card,.v-card,.quote-box,.contact-card{
-  background:rgba(255,255,255,.62) !important;
-  color:#102033 !important;
-  border-color:rgba(255,255,255,.55) !important;
-}
-.v-card h3,.v-card p,.quote-box blockquote,.card-title,.card-desc,.section-title,.about-text p,.tagline,.brand-sub{color:#102033 !important}
-.card-desc,.tagline,.brand-sub,.about-text p{color:#3e5168 !important}
+body,body::before{background:#0c1218 !important}
+body::before{background:linear-gradient(180deg,#141c26,#0c1218 60%) !important;filter:none !important;animation:none !important}
+body,h1,h2,h3,p,a,span,li,.card-title,.card-desc,.section-title,.tagline,.brand-sub,.about-text,.v-card,.quote-box{color:#f4f7fb}
+.card-desc,.tagline,.brand-sub,.about-text p,.v-card p,.quote-attr,.footer,.contact-label{color:#c5d0dc !important}
+.link-card,.v-card,.quote-box,.contact-card,.survey-card{background:rgba(16,22,30,.88) !important;color:#f4f7fb !important;border-color:rgba(255,255,255,.14) !important}
+.call-btn,.btn-primary{background:#f4f7fb !important;color:#101820 !important}
