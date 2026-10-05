@@ -1,9 +1,15 @@
-.brand-icon,.v-card,.quote-box,.survey-card,.contact-card,.link-card,.hub-link,.field input,.field textarea,.star-btn,.btn-ghost{
-  background:rgba(10,18,30,.4) !important;
-  border-color:rgba(255,255,255,.28) !important;
-  color:#f7fbff !important;
-  backdrop-filter:blur(18px) saturate(1.45);
+body::before{
+  background:
+    radial-gradient(90% 55% at 50% 112%, rgba(255,214,176,.85), transparent 48%),
+    radial-gradient(55% 40% at 84% 12%, rgba(126,182,255,.45), transparent 54%),
+    linear-gradient(180deg, #1b3f73 0%, #4d86c5 48%, #e7b08a 100%) !important;
+  filter:none !important;
+  animation:drift 24s ease-in-out infinite alternate !important;
 }
-.topnav{background:rgba(8,16,28,.35) !important;backdrop-filter:blur(16px)}
-.quote-box blockquote,.v-card h3,.survey-card h1,.field label{color:#f7fbff !important}
-.btn-primary,.call-btn{background:linear-gradient(180deg,#f4fbff,#b7e4ff) !important;color:#082033 !important}
+.link-card,.v-card,.quote-box,.contact-card{
+  background:rgba(255,255,255,.62) !important;
+  color:#102033 !important;
+  border-color:rgba(255,255,255,.55) !important;
+}
+.v-card h3,.v-card p,.quote-box blockquote,.card-title,.card-desc,.section-title,.about-text p,.tagline,.brand-sub{color:#102033 !important}
+.card-desc,.tagline,.brand-sub,.about-text p{color:#3e5168 !important}
