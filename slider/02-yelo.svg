@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800" role="img" aria-label="YELO Music">
+  <rect width="1600" height="800" fill="#241433"/>
+  <circle cx="1280" cy="220" r="180" fill="#ffc24a" opacity="0.9"/>
+  <text x="90" y="360" fill="#ffc24a" font-family="Tahoma, sans-serif" font-size="92" font-weight="700">YELO Music</text>
+  <text x="90" y="450" fill="#fff8f3" font-family="Tahoma, sans-serif" font-size="40">نشر موسیقی و حمایت از هنرمند مستقل</text>
+</svg>

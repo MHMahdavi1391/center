@@ -55,6 +55,21 @@
             </div>
             <p class="tagline" data-i18n="tagline">دسترسی یکپارچه به سرویس‌ها و معرفی شرکت</p>
         </header>
+        <section class="ad-slider" id="adSlider" hidden aria-roledescription="carousel" aria-label="اسلایدر تبلیغات">
+            <div class="ad-frame" id="adFrame">
+                <img class="ad-under" id="adUnder" alt="">
+                <div class="ad-sheet" id="adSheet">
+                    <img id="adSheetImg" alt="">
+                </div>
+            </div>
+            <button type="button" class="ad-nav ad-prev" id="adPrev" aria-label="عقب">
+                <i class="fas fa-chevron-right" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="ad-nav ad-next" id="adNext" aria-label="جلو">
+                <i class="fas fa-chevron-left" aria-hidden="true"></i>
+            </button>
+            <div class="ad-dots" id="adDots"></div>
+        </section>
         <section class="links-section">
             <div id="link-list" class="link-grid"></div>
             <div id="empty-state" class="empty-state" style="display: none;">
@@ -147,6 +162,7 @@
             <p class="footer-credit" data-i18n="footer_credit">طراحی و توسعه با دقت</p>
         </footer>
     </main>
+    <script src="slider.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
