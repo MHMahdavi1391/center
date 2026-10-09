@@ -12,8 +12,6 @@
   var under = document.getElementById('adUnder');
   var sheet = document.getElementById('adSheet');
   var sheetImg = document.getElementById('adSheetImg');
-  var prevBtn = document.getElementById('adPrev');
-  var nextBtn = document.getElementById('adNext');
   var dotsEl = document.getElementById('adDots');
 
   var slides = [];
@@ -127,16 +125,10 @@
     index = 0;
     setImg(sheetImg, slides[0]);
     setImg(under, slides[slides.length > 1 ? 1 : 0]);
-    var single = slides.length < 2;
-    prevBtn.hidden = single;
-    nextBtn.hidden = single;
-    dotsEl.hidden = single;
+    dotsEl.hidden = slides.length < 2;
     renderDots();
     arm();
   }
-
-  prevBtn.addEventListener('click', function () { go(-1); });
-  nextBtn.addEventListener('click', function () { go(1); });
 
   root.addEventListener('mouseenter', function () { paused = true; clearTimeout(timer); });
   root.addEventListener('mouseleave', function () { paused = false; arm(); });
@@ -148,18 +140,36 @@
     else arm();
   });
 
-  var touchX = 0;
-  frame.addEventListener('touchstart', function (e) {
-    touchX = e.changedTouches[0].clientX;
+  var dragX = 0;
+  var dragging = false;
+
+  function endDrag(clientX) {
+    if (!dragging) return;
+    dragging = false;
+    frame.classList.remove('is-dragging');
+    var dx = clientX - dragX;
+    sheet.style.transform = '';
+    paused = false;
+    if (Math.abs(dx) > 46) go(dx < 0 ? 1 : -1);
+    else arm();
+  }
+
+  frame.addEventListener('pointerdown', function (e) {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    if (e.target.closest('.ad-dot')) return;
+    dragging = true;
+    dragX = e.clientX;
     paused = true;
     clearTimeout(timer);
-  }, { passive: true });
-  frame.addEventListener('touchend', function (e) {
-    var dx = e.changedTouches[0].clientX - touchX;
-    paused = false;
-    if (Math.abs(dx) > 42) go(dx < 0 ? 1 : -1);
-    else arm();
-  }, { passive: true });
+    frame.classList.add('is-dragging');
+    if (frame.setPointerCapture) frame.setPointerCapture(e.pointerId);
+  });
+  frame.addEventListener('pointermove', function (e) {
+    if (!dragging || busy) return;
+    sheet.style.transform = 'translateX(' + ((e.clientX - dragX) * 0.2) + 'px)';
+  });
+  frame.addEventListener('pointerup', function (e) { endDrag(e.clientX); });
+  frame.addEventListener('pointercancel', function (e) { endDrag(e.clientX); });
 
   discover().then(start);
 })();
