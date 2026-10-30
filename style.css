@@ -32,12 +32,12 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 .footer-industries{font-family:var(--brand-font);font-size:.85rem;letter-spacing:.14em;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
 @media (min-width:980px){
-  .header{text-align:left;margin-bottom:8px;direction:ltr;width:100%}
+  .header{text-align:start;margin-bottom:8px;width:100%}
   .brand{flex-direction:column;align-items:stretch;justify-content:flex-start;gap:6px;width:100%}
   .brand-banner{width:100%;max-width:100%;height:auto}
-  .brand-text{align-items:flex-start;text-align:left;gap:2px;width:100%}
+  .brand-text{align-items:flex-start;text-align:start;gap:2px;width:100%}
   .brand-sub{font-size:.95rem}
-  .tagline{max-width:none;margin:0;text-align:left;font-size:.82rem;line-height:1.5}
+  .tagline{max-width:none;margin:0;text-align:start;font-size:.82rem;line-height:1.5}
 }
 .tagline{margin:14px auto 0;max-width:42ch;font-weight:500}
 .link-grid{display:flex;flex-direction:column;gap:12px}
@@ -95,7 +95,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 
 @media (min-width:980px){
   .container{width:min(1280px,calc(100% - 32px));padding-top:16px}
-  .hub-layout{display:grid;direction:ltr;grid-template-columns:minmax(220px,25%) minmax(0,1fr);gap:16px;align-items:stretch;min-height:min(68vh,560px)}
+  .hub-layout{display:grid;grid-template-columns:minmax(220px,25%) minmax(0,1fr);gap:16px;align-items:stretch;min-height:min(68vh,560px)}
   .hub-layout:has(#adSlider[hidden]){grid-template-columns:minmax(220px,25%)}
   .hub-left{display:flex;flex-direction:column;min-width:0;width:100%;order:0;align-items:stretch}
   .ad-slider{order:0;margin:0;align-self:stretch;width:100%;height:100%;min-height:min(68vh,560px)}
@@ -111,3 +111,5 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
   .link-card .card-desc{display:none}
   .link-card .card-arrow{font-size:.7rem}
 }
+
+html[dir="ltr"] .card-arrow{transform:scaleX(-1)}
