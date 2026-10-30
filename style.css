@@ -21,11 +21,13 @@ body::before{content:"";position:fixed;inset:-8%;z-index:-1;pointer-events:none;
 a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 .container{width:min(920px,calc(100% - 32px));margin:0 auto;padding:52px 0 32px}
 .header{text-align:center;margin-bottom:28px}
-.brand{display:flex;align-items:center;justify-content:center;gap:14px}
-.brand-icon{width:68px;height:68px;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:var(--glass);box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 16px 36px rgba(101,46,166,.12);backdrop-filter:blur(18px)}
-.brand-logo{width:100%;height:100%;object-fit:contain}
-.brand-text h1{font-family:var(--brand-font);font-size:clamp(1.9rem,6vw,2.6rem);letter-spacing:-.02em;line-height:1.05;font-weight:400;color:var(--ink);background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.brand-sub,.tagline,.card-desc,.about-text p,.v-card p,.quote-attr,.contact-label,.footer,.stat-row .k{color:var(--muted)}
+.brand{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.brand-banner{width:min(420px,92%);height:auto;border-radius:18px;display:block;box-shadow:0 12px 32px rgba(101,46,166,.12)}
+.brand-sub{font-family:var(--brand-font);font-size:1.15rem;letter-spacing:.12em;font-weight:400;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:0}
+.tagline,.card-desc,.about-text p,.v-card p,.quote-attr,.contact-label,.footer,.stat-row .k{color:var(--muted)}
+.footer-brand{display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:12px}
+.footer-logo{width:min(260px,80%);height:auto;border-radius:14px}
+.footer-industries{font-family:var(--brand-font);font-size:.9rem;letter-spacing:.14em;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .tagline{margin:14px auto 0;max-width:42ch;font-weight:500}
 .link-grid{display:flex;flex-direction:column;gap:12px}
 .link-card,.v-card,.contact-card,.quote-box{background:var(--glass);border:1px solid var(--line);border-radius:var(--radius);box-shadow:inset 0 1px 0 rgba(255,255,255,.85),0 18px 40px rgba(101,46,166,.1);backdrop-filter:blur(22px) saturate(1.2);-webkit-backdrop-filter:blur(22px) saturate(1.2)}
