@@ -21,13 +21,24 @@ body::before{content:"";position:fixed;inset:-8%;z-index:-1;pointer-events:none;
 a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 .container{width:min(920px,calc(100% - 32px));margin:0 auto;padding:52px 0 32px}
 .header{text-align:center;margin-bottom:28px}
-.brand{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
-.brand-banner{width:min(420px,92%);height:auto;border-radius:18px;display:block;box-shadow:0 12px 32px rgba(101,46,166,.12)}
-.brand-sub{font-family:var(--brand-font);font-size:1.15rem;letter-spacing:.12em;font-weight:400;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:0}
+.brand{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.brand-banner{width:min(280px,78%);height:auto;display:block;border:0;box-shadow:none;border-radius:0;background:transparent}
+.brand-text{display:flex;flex-direction:column;align-items:center;gap:4px}
+.brand-sub{font-family:var(--brand-font);font-size:1.05rem;letter-spacing:.12em;font-weight:400;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin:0}
+.tagline{margin:0;max-width:36ch}
 .tagline,.card-desc,.about-text p,.v-card p,.quote-attr,.contact-label,.footer,.stat-row .k{color:var(--muted)}
 .footer-brand{display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:12px}
-.footer-logo{width:min(260px,80%);height:auto;border-radius:14px}
-.footer-industries{font-family:var(--brand-font);font-size:.9rem;letter-spacing:.14em;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.footer-logo{width:min(200px,70%);height:auto;border:0;box-shadow:none;border-radius:0;background:transparent}
+.footer-industries{font-family:var(--brand-font);font-size:.85rem;letter-spacing:.14em;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+@media (min-width:980px){
+  .header{text-align:left;margin-bottom:20px;direction:ltr}
+  .brand{flex-direction:row;align-items:center;justify-content:flex-start;gap:18px}
+  .brand-banner{width:240px;max-width:240px}
+  .brand-text{align-items:flex-start;text-align:left;gap:6px}
+  .brand-sub{font-size:1.2rem}
+  .tagline{max-width:28ch;margin:0;text-align:left}
+}
 .tagline{margin:14px auto 0;max-width:42ch;font-weight:500}
 .link-grid{display:flex;flex-direction:column;gap:12px}
 .link-card,.v-card,.contact-card,.quote-box{background:var(--glass);border:1px solid var(--line);border-radius:var(--radius);box-shadow:inset 0 1px 0 rgba(255,255,255,.85),0 18px 40px rgba(101,46,166,.1);backdrop-filter:blur(22px) saturate(1.2);-webkit-backdrop-filter:blur(22px) saturate(1.2)}
