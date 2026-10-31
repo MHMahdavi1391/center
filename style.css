@@ -80,7 +80,10 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 .ad-frame.is-dragging{cursor:grabbing}
 .ad-track{display:flex;height:100%;transform:translateX(0);transition:transform .55s cubic-bezier(.22,1,.36,1)}
 .ad-frame.is-dragging .ad-track{transition:none}
-.ad-track img{flex:0 0 100%;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ad-track img,.ad-link{flex:0 0 100%;width:100%;height:100%;object-fit:cover}
+.ad-link{display:block}
+.ad-track img{pointer-events:none}
+.ad-link{cursor:pointer}
 .ad-dots{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);z-index:4;display:flex;gap:6px;padding:7px 10px;border-radius:999px;background:rgba(248,249,252,.72);border:1px solid rgba(255,255,255,.7);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 .ad-dot{width:7px;height:7px;border:0;border-radius:999px;background:rgba(26,26,46,.28);cursor:pointer;padding:0}
 .ad-dot.is-on{width:18px;background:var(--gradient)}

@@ -23,7 +23,19 @@
     return String(name || '').replace(/\.[^.]+$/, '').replace(/[-_]+/g, ' ');
   }
 
+  async function loadLinks() {
+    try {
+      var res = await fetch('slider/links.json', { cache: 'no-store' });
+      if (!res.ok) return {};
+      var data = await res.json();
+      return data && typeof data === 'object' ? data : {};
+    } catch (err) {
+      return {};
+    }
+  }
+
   async function discover() {
+    var links = await loadLinks();
     try {
       var res = await fetch('https://api.github.com/repos/MHMahdavi1391/center/contents/slider?ref=main', {
         headers: { Accept: 'application/vnd.github+json' }
@@ -34,7 +46,13 @@
           return items
             .filter(function (item) { return item && item.type === 'file' && EXT.test(item.name); })
             .sort(function (a, b) { return a.name.localeCompare(b.name, 'en', { numeric: true, sensitivity: 'base' }); })
-            .map(function (item) { return { src: 'slider/' + encodeURIComponent(item.name), name: item.name }; });
+            .map(function (item) {
+              return {
+                src: 'slider/' + encodeURIComponent(item.name),
+                name: item.name,
+                href: links[item.name] || ''
+              };
+            });
         }
       }
     } catch (err) {}
@@ -91,7 +109,23 @@
       img.src = slide.src;
       img.alt = label(slide.name);
       img.draggable = false;
-      track.appendChild(img);
+      if (slide.href) {
+        var link = document.createElement('a');
+        link.href = slide.href;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.className = 'ad-link';
+        link.setAttribute('aria-label', label(slide.name));
+        link.addEventListener('click', function (e) {
+          if (frame.classList.contains('is-dragging') || Math.abs((e.clientX || 0) - dragX) > 12) {
+            e.preventDefault();
+          }
+        });
+        link.appendChild(img);
+        track.appendChild(link);
+      } else {
+        track.appendChild(img);
+      }
     });
     root.hidden = false;
     index = 0;
