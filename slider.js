@@ -1,6 +1,6 @@
 /**
- * LTC HUB slider — horizontal slide, centered with the page.
- * Images in /slider play in name order. Auto every 5s. Drag left/right to move.
+ * Enhanced Frame Industries slider
+ * Auto-play, drag/touch, arrows, keyboard, dots.
  */
 (function () {
   'use strict';
@@ -9,11 +9,12 @@
   var frame = document.getElementById('adFrame');
   var track = document.getElementById('adTrack');
   var dotsEl = document.getElementById('adDots');
+  var prevBtn = document.getElementById('adPrev');
+  var nextBtn = document.getElementById('adNext');
   if (!root || !frame || !track || !dotsEl) return;
 
   var slides = [];
   var index = 0;
-  var busy = false;
   var timer = null;
   var paused = false;
   var INTERVAL = 5000;
@@ -140,7 +141,7 @@
   frame.addEventListener('pointerdown', function (e) {
     if (slides.length < 2) return;
     if (e.pointerType === 'mouse' && e.button !== 0) return;
-    if (e.target.closest('.ad-dot')) return;
+    if (e.target.closest('.ad-dot') || e.target.closest('.ad-arrow')) return;
     dragging = true;
     dragX = e.clientX;
     paused = true;
@@ -171,6 +172,17 @@
   frame.addEventListener('pointerup', function (e) { endDrag(e.clientX); });
   frame.addEventListener('pointercancel', function (e) { endDrag(dragX); });
   window.addEventListener('resize', function () { place(0); });
+
+  // Arrow buttons
+  if (prevBtn) prevBtn.addEventListener('click', function () { goTo(index - 1); });
+  if (nextBtn) nextBtn.addEventListener('click', function () { goTo(index + 1); });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', function (e) {
+    if (slides.length < 2) return;
+    if (e.key === 'ArrowLeft') goTo(index + 1);
+    if (e.key === 'ArrowRight') goTo(index - 1);
+  });
 
   root.addEventListener('mouseenter', function () { paused = true; clearTimeout(timer); });
   root.addEventListener('mouseleave', function () { if (!dragging) { paused = false; arm(); } });
