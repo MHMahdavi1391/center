@@ -14,12 +14,50 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="glass-nav" id="nav">
-        <a href="#hero" class="nav-logo">FRAME</a>
-        <a href="#about" data-i18n="nav_about">درباره</a>
-        <a href="#ventures" data-i18n="nav_ventures">پروژه‌ها</a>
-        <a href="#founder" data-i18n="nav_founder">بنیان‌گذار</a>
-        <a href="#contact" data-i18n="nav_contact">تماس</a>
+    <!-- Hamburger Button -->
+    <button class="hamburger" id="hamburger" aria-label="منو" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Overlay -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Slide Menu -->
+    <nav class="slide-menu" id="slideMenu" aria-hidden="true">
+        <div class="menu-header">
+            <span class="menu-logo">FRAME</span>
+            <button class="menu-close" id="menuClose" aria-label="بستن">×</button>
+        </div>
+
+        <div class="menu-section">
+            <p class="menu-label">ناوبری صفحه</p>
+            <a href="#hero">خانه</a>
+            <a href="#about">درباره</a>
+            <a href="#ventures">پروژه‌ها</a>
+            <a href="#founder">بنیان‌گذار</a>
+            <a href="#contact">تماس</a>
+        </div>
+
+        <div class="menu-section">
+            <p class="menu-label">سایت‌ها و لینک‌ها</p>
+            <a href="https://mhmahdavi1391.github.io/yelo/" target="_blank" rel="noopener">
+                <i class="fa-solid fa-music"></i> YELO Music
+            </a>
+            <a href="https://mhmahdavi1391.github.io/VR/" target="_blank" rel="noopener">
+                <i class="fa-solid fa-vr-cardboard"></i> کتابخانه VR
+            </a>
+            <a href="https://t.me/frame_industries_3d" target="_blank" rel="noopener">
+                <i class="fa-solid fa-cube"></i> پرینت سه‌بعدی
+            </a>
+            <a href="https://t.me/Frame_TM" target="_blank" rel="noopener">
+                <i class="fab fa-telegram"></i> تلگرام
+            </a>
+            <a href="https://www.instagram.com/frame.industries/" target="_blank" rel="noopener">
+                <i class="fab fa-instagram"></i> اینستاگرام
+            </a>
+        </div>
     </nav>
 
     <main>
@@ -30,33 +68,12 @@
                 <p class="tagline">فراتر از چارچوب — نوآوری، دقت و استقلال در فناوری دیجیتال.</p>
             </div>
 
-            <!-- Integrated Slider -->
             <section class="ad-slider" id="adSlider" hidden aria-roledescription="carousel" aria-label="اسلایدر">
                 <div class="ad-frame" id="adFrame">
                     <div class="ad-track" id="adTrack"></div>
                     <div class="ad-dots" id="adDots"></div>
                 </div>
             </section>
-
-            <!-- Quick Links — always visible, not crowded -->
-            <div class="quick-links">
-                <a href="https://mhmahdavi1391.github.io/yelo/" class="q-link">
-                    <i class="fa-solid fa-music"></i>
-                    <span>YELO Music</span>
-                </a>
-                <a href="https://mhmahdavi1391.github.io/VR/" class="q-link">
-                    <i class="fa-solid fa-vr-cardboard"></i>
-                    <span>کتابخانه VR</span>
-                </a>
-                <a href="https://t.me/frame_industries_3d" target="_blank" rel="noopener" class="q-link">
-                    <i class="fa-solid fa-cube"></i>
-                    <span>پرینت سه‌بعدی</span>
-                </a>
-                <a href="https://t.me/Frame_TM" target="_blank" rel="noopener" class="q-link">
-                    <i class="fab fa-telegram"></i>
-                    <span>تلگرام</span>
-                </a>
-            </div>
         </section>
 
         <section id="about" class="section">
@@ -116,25 +133,54 @@
 
     <script src="slider.js"></script>
     <script>
-        // Scroll reveal & nav highlight
+        // Menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const slideMenu = document.getElementById('slideMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const menuClose = document.getElementById('menuClose');
+
+        function openMenu() {
+            slideMenu.classList.add('open');
+            menuOverlay.classList.add('show');
+            hamburger.setAttribute('aria-expanded', 'true');
+            slideMenu.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMenu() {
+            slideMenu.classList.remove('open');
+            menuOverlay.classList.remove('show');
+            hamburger.setAttribute('aria-expanded', 'false');
+            slideMenu.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        hamburger.addEventListener('click', openMenu);
+        menuClose.addEventListener('click', closeMenu);
+        menuOverlay.addEventListener('click', closeMenu);
+
+        // Close menu on link click (for internal anchors)
+        slideMenu.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', closeMenu);
+        });
+
+        // Scroll reveal
         const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.glass-nav a');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                    const id = entry.target.id;
-                    navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + id));
-                }
+                if (entry.isIntersecting) entry.target.classList.add('revealed');
             });
         }, { threshold: 0.25 });
         sections.forEach(s => observer.observe(s));
 
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(a => {
             a.addEventListener('click', e => {
-                e.preventDefault();
-                const target = document.querySelector(a.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth' });
+                const href = a.getAttribute('href');
+                if (href.startsWith('#') && href.length > 1) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) target.scrollIntoView({ behavior: 'smooth' });
+                }
             });
         });
     </script>
