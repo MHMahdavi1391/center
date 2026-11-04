@@ -142,6 +142,7 @@
         function openMenu() {
             slideMenu.classList.add('open');
             menuOverlay.classList.add('show');
+            hamburger.classList.add('hidden');
             hamburger.setAttribute('aria-expanded', 'true');
             slideMenu.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
@@ -149,6 +150,7 @@
         function closeMenu() {
             slideMenu.classList.remove('open');
             menuOverlay.classList.remove('show');
+            hamburger.classList.remove('hidden');
             hamburger.setAttribute('aria-expanded', 'false');
             slideMenu.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = '';
