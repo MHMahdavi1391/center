@@ -24,10 +24,39 @@
 
     <main>
         <section id="hero" class="hero">
-            <img src="assets/logo-banner.png" alt="FRAME" class="hero-logo">
-            <h1>Beyond the Frame.</h1>
-            <p class="tagline">فراتر از چارچوب — نوآوری، دقت و استقلال در فناوری دیجیتال.</p>
-            <a href="#about" class="cta">کشف کنید</a>
+            <div class="hero-text">
+                <img src="assets/logo-banner.png" alt="FRAME" class="hero-logo">
+                <h1>Beyond the Frame.</h1>
+                <p class="tagline">فراتر از چارچوب — نوآوری، دقت و استقلال در فناوری دیجیتال.</p>
+            </div>
+
+            <!-- Integrated Slider -->
+            <section class="ad-slider" id="adSlider" hidden aria-roledescription="carousel" aria-label="اسلایدر">
+                <div class="ad-frame" id="adFrame">
+                    <div class="ad-track" id="adTrack"></div>
+                    <div class="ad-dots" id="adDots"></div>
+                </div>
+            </section>
+
+            <!-- Quick Links — always visible, not crowded -->
+            <div class="quick-links">
+                <a href="https://mhmahdavi1391.github.io/yelo/" class="q-link">
+                    <i class="fa-solid fa-music"></i>
+                    <span>YELO Music</span>
+                </a>
+                <a href="https://mhmahdavi1391.github.io/VR/" class="q-link">
+                    <i class="fa-solid fa-vr-cardboard"></i>
+                    <span>کتابخانه VR</span>
+                </a>
+                <a href="https://t.me/frame_industries_3d" target="_blank" rel="noopener" class="q-link">
+                    <i class="fa-solid fa-cube"></i>
+                    <span>پرینت سه‌بعدی</span>
+                </a>
+                <a href="https://t.me/Frame_TM" target="_blank" rel="noopener" class="q-link">
+                    <i class="fab fa-telegram"></i>
+                    <span>تلگرام</span>
+                </a>
+            </div>
         </section>
 
         <section id="about" class="section">
@@ -51,7 +80,7 @@
                     <h3>کتابخانه VR</h3>
                     <p>ابزارها و کتابخانه واقعیت مجازی برای Quest و اندروید.</p>
                 </a>
-                <a href="https://t.me/frame_industries_3d" class="v-card" target="_blank">
+                <a href="https://t.me/frame_industries_3d" class="v-card" target="_blank" rel="noopener">
                     <i class="fa-solid fa-cube"></i>
                     <h3>پرینت سه‌بعدی</h3>
                     <p>محصولات و سفارش از کانال تلگرام.</p>
@@ -85,8 +114,9 @@
         <p>&copy; 2026 FRAME Industries — Beyond the Frame.</p>
     </footer>
 
+    <script src="slider.js"></script>
     <script>
-        // Simple scroll reveal & nav highlight
+        // Scroll reveal & nav highlight
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.glass-nav a');
         const observer = new IntersectionObserver((entries) => {
@@ -97,14 +127,14 @@
                     navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + id));
                 }
             });
-        }, { threshold: 0.3 });
+        }, { threshold: 0.25 });
         sections.forEach(s => observer.observe(s));
 
-        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(a => {
             a.addEventListener('click', e => {
                 e.preventDefault();
-                document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
             });
         });
     </script>
