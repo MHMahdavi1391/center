@@ -349,6 +349,17 @@ blockquote {
 }
 
 .contact { text-align: center; }
+.contact a[href^="tel"] {
+  color: var(--cyan);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: color .3s;
+}
+.contact a[href^="tel"]:hover {
+  color: #fff;
+  text-decoration: underline;
+}
 .socials { display: flex; gap: 16px; justify-content: center; margin-top: 20px; }
 .socials a {
   color: var(--muted);
